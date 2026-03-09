@@ -90,20 +90,17 @@ Implement unit tests with `pytest`:
 Implement Docker and Docker Compose to containerize your application, so it:
 - is packaged in a Docker container, with code and model
 - contains all required inference dependencies
+- use official uv Docker image 
+- create `.dockerignore` file to exclude `.venv/`, `__pycache__/`, etc
+- use cache mounts (`--mount=type=cache`) for faster rebuilds
+- use bind mounts (`--mount=type=bind`) for dependency files
 - is runnable using `docker compose up`
 - is accessible on `http://localhost:8000`
 
-For base image, we recommend `slim-bookworm` from https://hub.docker.com/_/python. Note that
-it should have the same Python version as your application.
-
-Validate that everything works by running Docker Compose and making queries to the webserver.
-
-## 7. Bonus exercise (2 extra points)
-
-Optimize your Dockerfile:
-- use small, lightweight base image
-- install `uv` inside the Dockerfile, copy `pyproject.toml` and `uv.lock`, install dependencies
-- split the Dockerfile layers to use a [multi-stage build](https://docs.docker.com/build/building/multi-stage/):
-  - first stage should install dependencies
-  - second stage should copy the application code
-- compare the Docker image size of your original solution from exercise 5 and this one
+## Grading:
+- section 1: 2 points
+- section 2: 1 point
+- section 3: 2 points
+- section 4: 2 points
+- section 5: 1 point
+- section 6: 2 points
