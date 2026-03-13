@@ -101,7 +101,15 @@ dependencies in the current projects from the main system one. It will also crea
 - `pyproject.toml` - used for specifying dependencies
 - `.python-version` - stating Python version used
 
-To activate it, on Linux and macOS run `source .venv/bin/activate`, or `.venv\Scripts\activate` on Windows.
+To activate it, on Linux and macOS run:
+```bash
+source .venv/bin/activate
+```
+or on Windows:
+
+```bash
+.venv\Scripts\activate
+```
 
 Verify the Python version by running the following command:
 ```bash
